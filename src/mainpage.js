@@ -1,6 +1,7 @@
 import './style.css'
 import bookIcon from './imgs/book.png'
-import bookShelf from './imgs/empty-shelf.jpg'
+import { Library } from './libraryModule'
+import { Book } from './book'
 
 const mainPage = (() => {
     //Nav bar
@@ -23,14 +24,54 @@ const mainPage = (() => {
     subHeader.classList.add("sub-header")
     document.body.appendChild(subHeader)
 
-    const shelfImage = document.createElement("img")
-    shelfImage.src = bookShelf
-    subHeader.appendChild(shelfImage)
-
     //footer 
     const footer = document.createElement("div")
     footer.classList.add("footer")
     document.body.appendChild(footer)
+
+    //Shelf and BookCards
+
+    let shelf = document.createElement("div")
+    shelf.classList.add("shelf")
+    subHeader.appendChild(shelf)
+
+    let library = new Library()
+    let bookOne = new Book("The Lion, The Witch, and the Wardrobe", "C.S. Lewis", true)
+    let bookTwo = new Book("Percy Jackson", "Rick Riordan", true)
+    let bookThree = new Book("Book of Human Skin", "Michelle Lovric", true)
+    library.addBook(bookOne)
+    library.addBook(bookTwo)
+    library.addBook(bookThree)
+
+    function showBooks() {
+        shelf.innerHTML
+        for(let book of library.shelf) {
+            createBookCard(shelf,book)
+        }
+    }
+
+    function createBookCard(container, book) {
+        const bookCard = document.createElement("div")
+        bookCard.classList.add("book-card")
+        container.appendChild(bookCard)
+
+        const bookTitle = document.createElement("p")
+        bookTitle.textContent = book.title
+        bookCard.appendChild(bookTitle)
+        let bookId = book.title
+
+        const removeBtn = document.createElement("button")
+        removeBtn.textContent = 'x'
+        removeBtn.id = 'remove-button'
+        bookCard.appendChild(removeBtn)
+
+        removeBtn.addEventListener("click", () => {
+            bookCard.remove()
+            library.removeBook(bookId)
+        })
+    }
+
+    showBooks()
 
 })()
 

@@ -39,13 +39,45 @@ body {
 }
 
 .sub-header {
-    flex: 2;
-    height: 550px;
+    height: 490px;
+    background-image: url('./imgs//empty-shelf.jpg');
+    background-size: contain;
+    background-position: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: center;
 }
 
-.sub-header > img {
-    height: 100%;
-    width: 100%;
+.shelf {
+    width: 80%;
+    border: 2px solid pink;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 50px;
+    padding: 5px;
+}
+
+.book-card {
+    background-color: beige;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: -3px -0px 10px grey inset;
+    position: relative;
+    align-items: center;
+}
+
+#remove-button {
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    background-color: red;
+    border-radius: 10px;
+    color: whitesmoke;
+    border: none;
 }
 
 .footer {
