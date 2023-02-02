@@ -19,6 +19,11 @@ const mainPage = (() => {
     homeBtn.classList.add("home-button")
     navBar.appendChild(homeBtn)
 
+    const addBookBtn = document.createElement("button")
+    addBookBtn.textContent = "Add Book"
+    addBookBtn.id = "add-button"
+    navBar.appendChild(addBookBtn)
+
     //Sub header
     const subHeader = document.createElement("div")
     subHeader.classList.add("sub-header")
