@@ -1,0 +1,56 @@
+:root {
+    --base-color: rgb(219, 183, 137);
+}
+
+@font-face {
+    font-family: 'Library';
+    src: url('./Library\ 3\ am.otf');
+}
+
+* {
+    font-family: 'Library';
+}
+
+body {
+    margin: auto 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar {
+    background-color: var(--base-color);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.logo {
+    height: 90px;
+    width: 90px;
+}
+
+.home-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 50px;
+
+}
+
+.sub-header {
+    flex: 2;
+}
+
+.footer {
+    background-color: var(--base-color);
+    flex: 1;
+}
+
+.home-button:hover {
+    text-decoration: underline;
+}
