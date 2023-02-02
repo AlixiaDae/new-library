@@ -1,5 +1,6 @@
 import './style.css'
-import bookIcon from './book.png'
+import bookIcon from './imgs/book.png'
+import bookShelf from './imgs/empty-shelf.jpg'
 
 const mainPage = (() => {
     //Nav bar
@@ -22,6 +23,9 @@ const mainPage = (() => {
     subHeader.classList.add("sub-header")
     document.body.appendChild(subHeader)
 
+    const shelfImage = document.createElement("img")
+    shelfImage.src = bookShelf
+    subHeader.appendChild(shelfImage)
 
     //footer 
     const footer = document.createElement("div")
