@@ -24,6 +24,96 @@ const mainPage = (() => {
     addBookBtn.id = "add-button"
     navBar.appendChild(addBookBtn)
 
+    //Add book form
+
+    const formContainer = document.createElement("div")
+    formContainer.classList.add("form-container")
+    document.body.appendChild(formContainer)
+
+    const bookForm = document.createElement("form")
+    bookForm.classList.add("book-form")
+    formContainer.appendChild(bookForm)
+
+    const bookField = document.createElement("fieldset")
+    bookForm.appendChild(bookField)
+
+    const addBookLegend = document.createElement("legend")
+    addBookLegend.textContent = "Add a new book"
+    bookField.appendChild(addBookLegend)
+
+    const addBookTitleWrapper = document.createElement("div")
+    bookField.appendChild(addBookTitleWrapper)
+
+    const addBookTitleLabel = document.createElement("label")
+    addBookTitleLabel.textContent = "Book Title:"
+    addBookTitleLabel.setAttribute("for", "bTitle")
+    addBookTitleWrapper.appendChild(addBookTitleLabel)
+
+    const addBookTitleInput = document.createElement("input")
+    addBookTitleInput.id = "bTitle"
+    addBookTitleInput.name = "bTitle"
+    addBookTitleWrapper.appendChild(addBookTitleInput)
+
+    const addBookAuthorWrapper = document.createElement("div")
+    bookField.appendChild(addBookAuthorWrapper)
+
+    const addBookAuthorLabel = document.createElement("label")
+    addBookAuthorLabel.textContent = "Book Author:"
+    addBookAuthorLabel.setAttribute("for", "bAuthor")
+    addBookAuthorWrapper.appendChild(addBookAuthorLabel)
+
+    const addBookAuthorInput = document.createElement("input")
+    addBookAuthorInput.id = "bAuthor"
+    addBookAuthorInput.name = "bAuthor"
+    addBookAuthorWrapper.appendChild(addBookAuthorInput)
+
+    const addBookProgressWrapper = document.createElement("div")
+    bookField.appendChild(addBookProgressWrapper)
+
+    const addBookProgressWrapperLabel = document.createElement("div")
+    addBookProgressWrapperLabel.textContent = "Read/Unread"
+    addBookProgressWrapper.appendChild(addBookProgressWrapperLabel)
+
+    const bookReadRadioWrapper = document.createElement("p")
+    bookReadRadioWrapper.classList.add("read-wrapper")
+    addBookProgressWrapper.appendChild(bookReadRadioWrapper)
+
+    const bookReadRadio = document.createElement("input")
+    bookReadRadio.type = "radio"
+    bookReadRadio.id = "read"
+    bookReadRadio.name = "bIsRead"
+    bookReadRadio.value = true
+    bookReadRadioWrapper.appendChild(bookReadRadio)
+    
+    const bookReadRadioLabel = document.createElement("label")
+    bookReadRadioLabel.setAttribute("for", "bIsRead")
+    bookReadRadioLabel.textContent = "Read"
+    bookReadRadioWrapper.appendChild(bookReadRadioLabel)
+
+    const bookUnreadRadioWrapper = document.createElement("p")
+    bookUnreadRadioWrapper.classList.add("unread-wrapper")
+    addBookProgressWrapper.appendChild(bookUnreadRadioWrapper)
+
+    const bookUnreadRadio = document.createElement("input")
+    bookUnreadRadio.type = "radio"
+    bookUnreadRadio.id = "unread"
+    bookUnreadRadio.name = "bIsRead"
+    bookUnreadRadio.value = false
+    bookUnreadRadioWrapper.appendChild(bookUnreadRadio)
+    
+    const bookUnreadRadioLabel = document.createElement("label")
+    bookUnreadRadioLabel.setAttribute("for", "bIsRead")
+    bookUnreadRadioLabel.textContent = "Unread"
+    bookUnreadRadioWrapper.appendChild(bookUnreadRadioLabel)
+
+    //book submit button
+
+    const addBookSubmitButton = document.createElement("input")
+    addBookSubmitButton.setAttribute("type", "submit")
+    addBookSubmitButton.id = "submit-book"
+    addBookSubmitButton.value = "Add to Library"
+    bookField.appendChild(addBookSubmitButton)
+
     //Sub header
     const subHeader = document.createElement("div")
     subHeader.classList.add("sub-header")
@@ -64,6 +154,10 @@ const mainPage = (() => {
         bookTitle.textContent = book.title
         bookCard.appendChild(bookTitle)
         let bookId = book.title
+
+        const bookAuthor = document.createElement("p")
+        bookAuthor.textContent = book.author 
+        bookCard.appendChild(bookAuthor)
 
         const removeBtn = document.createElement("button")
         removeBtn.textContent = 'x'

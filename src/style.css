@@ -1,5 +1,5 @@
 :root {
-    --base-color: rgb(219, 183, 137);
+    --base-color: rgb(182, 211, 220);
 }
 
 @font-face {
@@ -14,8 +14,6 @@
 
 body {
     margin: auto 0;
-    height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
 }
@@ -58,10 +56,102 @@ body {
     font-size: 20px;
 }
 
+/* Form */
+
+.form-container {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    height: 250px;
+    width: 400px;
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+legend {
+    font-family: 'Library';
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input {
+    width: 300px;
+}
+
+fieldset > :not(:nth-child(4)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+fieldset > :nth-child(4) {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(2,1fr); 
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+fieldset > :nth-child(4) > div {
+    grid-column: 1/ span 2;
+    text-align: center;
+    font-family: 'Baskerville';
+    font-size: 14px;
+}
+
+.read-wrapper, 
+.unread-wrapper {
+    font-family: 'Baskerville';
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unread-wrapper {
+    grid-area: 2/1;
+    margin: 0;
+}
+
+.read-wrapper {
+    grid-area: 2/2;
+    margin: 0;
+}
+
+input[type=radio] {
+    width: 20px;
+    height: 15px;
+    margin: 0;
+}
+
+#submit-book {
+    padding: 15px;
+    width: 150px;
+    font-family: 'Baskerville';
+    font-size: 15px;
+    color: whitesmoke;
+    background-color: #d50303;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -3px -3px #6e0101 inset;
+}
+
 .sub-header {
     height: 490px;
     background-image: url('./imgs//empty-shelf.jpg');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     padding-top: 35px;
     padding-bottom: 35px;
@@ -82,14 +172,21 @@ body {
 .book-card {
     background-color: antiquewhite;
     padding: 10px;
-    font-size: 15px;
     font-family: 'Baskerville';
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: -5px 0px 15px rgb(142, 122, 97) inset;
     position: relative;
     align-items: center;
+}
+
+.book-card > :first-child {
+    font-size: 13px;
+}
+
+.book-card > :nth-child(2) {
+    font-size: 10px;
 }
 
 #remove-button {
@@ -104,10 +201,18 @@ body {
 
 .footer {
     background-color: var(--base-color);
-    flex: 1;
+    height: 100px;
 }
 
 .home-button:hover,
 #add-button:hover {
+    text-decoration: underline;
+}
+
+#submit-book:hover {
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #b80303;
+    box-shadow: -3px -3px #900000 inset;
     text-decoration: underline;
 }
