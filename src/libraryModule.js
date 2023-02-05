@@ -10,7 +10,9 @@ export class Library {
     }
 
     addBook(newBook) {
-        if(!this.shelf.includes(newBook.title)) {
+        if(this.shelf.some(book => book.title === newBook.title)) {
+            return 
+        } else {
             this.shelf.push(newBook)
         }
     }

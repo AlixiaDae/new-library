@@ -170,7 +170,7 @@ const mainPage = (() => {
     library.addBook(bookThree)
 
     function showBooks() {
-        shelf.innerHTML
+        shelf.innerHTML = ''
         for(let book of library.shelf) {
             createBookCard(shelf,book)
         }
