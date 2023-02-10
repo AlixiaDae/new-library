@@ -216,6 +216,16 @@ const mainPage = (() => {
             library.removeBook(bookId)
             saveToLocal()
         })
+
+        /* Book api not currently in use for covers
+        let titleArray = bookId.split(" ")
+        let titleString = ''
+        for(let i = 0; i < titleArray.length; i++){
+            titleString += titleArray[i] + "+"
+        }
+        let bookSearchIndex = Array.from(titleString).slice(0, titleString.length - 1).join("").toLowerCase()
+        console.log(bookSearchIndex) 
+        */
     }
 
     // Local Storage
