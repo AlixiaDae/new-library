@@ -152,6 +152,7 @@ const mainPage = (() => {
         const newBook = new Book(newBookTitle.value, newBookAuthor.value, bookProgress)
         if(!newBookTitle.value) return
         library.addBook(newBook)
+        saveToLocal()
         library.showBooks()
         showBooks()
     })
@@ -173,17 +174,21 @@ const mainPage = (() => {
     subHeader.appendChild(shelf)
 
     let library = new Library()
-    let bookOne = new Book("The Lion, The Witch, and the Wardrobe", "C.S. Lewis", true)
-    let bookTwo = new Book("Percy Jackson", "Rick Riordan", true)
-    let bookThree = new Book("Book of Human Skin", "Michelle Lovric", true)
-    library.addBook(bookOne)
-    library.addBook(bookTwo)
-    library.addBook(bookThree)
+
+    function populateLibrary() {
+        let bookOne = new Book("The Lion, The Witch, and the Wardrobe", "C.S. Lewis", true)
+        let bookTwo = new Book("Percy Jackson", "Rick Riordan", true)
+        let bookThree = new Book("Book of Human Skin", "Michelle Lovric", true)
+        library.addBook(bookOne)
+        library.addBook(bookTwo)
+        library.addBook(bookThree)
+        saveToLocal()
+    }
 
     function showBooks() {
         shelf.innerHTML = ''
-        for(let book of library.shelf) {
-            createBookCard(shelf,book)
+        for(let book of JSON.parse(localStorage.getItem("myLibrary"))) {
+            createBookCard(shelf, book)
         }
     }
 
@@ -209,9 +214,17 @@ const mainPage = (() => {
         removeBtn.addEventListener("click", () => {
             bookCard.remove()
             library.removeBook(bookId)
+            saveToLocal()
         })
     }
 
+    // Local Storage
+
+    const saveToLocal = () => {
+        localStorage.setItem("myLibrary", JSON.stringify(library.shelf))
+    }
+
+    populateLibrary()
     showBooks()
 
 })()
