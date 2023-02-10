@@ -4,7 +4,6 @@ import { Library } from './libraryModule'
 import { Book } from './book'
 
 const mainPage = (() => {
-
     //header
 
     const header = document.createElement("div")
@@ -41,6 +40,18 @@ const mainPage = (() => {
     const formContainer = document.createElement("div")
     formContainer.classList.add("form-container")
     document.body.appendChild(formContainer)
+
+    formContainer.style.height = "0px"
+
+    function showBookForm() {
+        if(formContainer.style.height == "0px") {
+            formContainer.style.height = "285px"
+        } else {
+            formContainer.style.height = "0px"
+        }
+    }
+
+    addBookBtn.addEventListener("click", showBookForm)
  
     const bookForm = document.createElement("form")
     bookForm.classList.add("book-form")

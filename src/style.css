@@ -75,9 +75,9 @@ h1 {
 /* Form */
 
 .form-container {
-    padding: 10px;
     display: flex;
     justify-content: center;
+    transition: height 1s;
 }
 
 fieldset {
@@ -176,11 +176,10 @@ input[type=radio] {
 }
 
 .shelf {
-    width: 80%;
-    border: 2px solid pink;
+    width: 85%;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(11, 1fr);
     row-gap: 50px;
     padding: 5px;
 }
